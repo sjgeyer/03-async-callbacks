@@ -15,11 +15,11 @@ const printFiles = (file) => {
 
 const readFileArray = (paths, currentIndex, callback) => {
   if (currentIndex >= paths.length) {
-    return callback('Read all files!! \n');
+    return callback('\nRead all files!!');
   }
   const currentPath = paths[currentIndex];
   try {
-    return reader.readIpsum(currentPath, (file) => {
+    return reader.readIpsum(currentPath, (error, file) => {
       stringArray.push(file);
       printFiles(file);
       readFileArray(paths, currentIndex + 1, callback);

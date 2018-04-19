@@ -6,10 +6,10 @@ const reader = module.exports = {};
 
 reader.readIpsum = (path, callback) => {
   console.log('-------------------------------------------------------');
-  return fs.readFile(path, (error, fileBuffer) => {
+  return fs.readFile(path, (error, result) => {
     if (error) {
       callback(error);
     }
-    return callback(fileBuffer.toString('utf8', 0));
+    return callback(null, result.toString('utf8', 0));
   });
 };
